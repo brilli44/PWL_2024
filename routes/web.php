@@ -38,7 +38,13 @@ Route::get('/posts/{post}/comments/{comment}', function
                     return 'Halaman artikel dengan ID ' . $id;
                 });
 
+Route::get('/user/{name?}', function ($name=null) {
+                    return 'Nama saya '.$name;
+});
 
+Route::get('/user/{name?}', function ($name='John') {
+    return 'Nama saya '.$name;
+    });
                     
 /*
 |--------------------------------------------------------------------------
