@@ -6,6 +6,7 @@ use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ArticlesController;
+use App\Http\Controllers\PhotoController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -63,6 +64,17 @@ Route::get('/index', [HomeController::class,'index'] );
 Route::get('/about', [AboutController::class,'about'] );
 
 Route::get('/Articles/{id}', [ArticlesController::class,'Articles']);
+
+Route::resource('photos', PhotoController::class);
+
+Route::resource('photos', PhotoController::class)->only([
+    'index', 'show'
+    ]);
+
+Route::resource('photos', PhotoController::class)->except([
+        'create', 'store', 'update', 'destroy'
+        ]);
+;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
