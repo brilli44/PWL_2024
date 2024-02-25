@@ -7,4 +7,7 @@ class WelcomeController extends Controller{
     public function hello(){
         return 'Hello Word';
     }
+    public function greeting(){
+        return view('blog.hello', ['name' => 'Brilli']);
+        }
 }
